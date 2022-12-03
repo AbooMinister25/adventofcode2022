@@ -17,9 +17,9 @@ def part_1(data: list[str]) -> int:
 
 
 def part_2(data: list[str]) -> int:
-    chunks = chunked(data, 3)
-    badges = [next(iter(set(a) & set(b) & set(c))) for a, b, c in chunks]
-    priorities_sum = sum(priorities[s] for s in badges)
+    priorities_sum = sum(
+        priorities[(set(a) & set(b) & set(c)).pop()] for a, b, c in chunked(data, 3)
+    )
 
     return priorities_sum
 
