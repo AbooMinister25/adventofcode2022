@@ -1,0 +1,42 @@
+[project]
+name = ""
+version = ""
+description = ""
+authors = [
+    {name = "AbooMinister25", email = "aboominister@gmail.com"},
+]
+dependencies = []
+requires-python = ">=3.10"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-pep517>=1.0.0"]
+build-backend = "pdm.pep517.api"
+
+[tool]
+[tool.pdm]
+[tool.pdm.dev-dependencies]
+format = [
+    "black>=22.10.0",
+    "isort>=5.10.1",
+]
+lint = [
+    "flake8>=6.0.0",
+]
+repl = [
+    "ipython>=8.7.0",
+]
+
+[tool.pdm.scripts]
+format = { shell = "black . && isort ." }
+lint = { shell = "pyright && flake8" }
+test = "pytest ."
+coverage = { shell = "coverage run -m pytest && coverage report && coverage xml" }
+precommit = { shell = "pdm run pre-commit run --all-files" }
+all = { composite = ["format", "lint", "test", "coverage"] }
+
+[tool.black]
+line-length = 100
+
+[tool.isort]
+profile = "black"

@@ -1,0 +1,16 @@
+__pycache__/
+htmlcov/
+.tox/
+.cache
+coverage_html_report/
+coverage.xml
+build/
+dist/
+.vscode/
+.venv/
+.env
+.pdm.toml
+.coverage
+.pytest_cache/
+__pypackages__/
+target/
