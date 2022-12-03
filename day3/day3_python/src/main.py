@@ -10,9 +10,9 @@ priorities = dict(zip(string.ascii_letters, range(1, 53)))
 
 def part_1(data: list[str]) -> int:
     priorities_sum = sum(
-        [priorities[(set(a) & set(b)).pop()] for a, b in [divide(2, i) for i in data]]
+        priorities[(set(a) & set(b)).pop()] for a, b in [divide(2, i) for i in data]
     )
-    
+
     return priorities_sum
 
 
