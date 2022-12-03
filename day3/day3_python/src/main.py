@@ -26,7 +26,6 @@ def part_2(data: list[str]) -> int:
 
 if __name__ == "__main__":
     data = fetch(2022, 3).splitlines()
-    part_1(data)
 
-    print(part_1(data))
-    print(part_2(data))
+    submit(2022, 3, 1, functools.partial(part_1, data))
+    submit(2022, 3, 2, functools.partial(part_2, data))
